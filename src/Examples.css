@@ -1,0 +1,27 @@
+#examples {
+  grid-area: examples;
+  padding: 1em;
+  overflow-y: auto;
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
+}
+
+#examples h1 {
+  margin: 0;
+}
+
+#examples ul {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+#examples li {
+  padding: 0.2em 0;
+}
+
+#examples button {
+  font-size: smaller;
+}

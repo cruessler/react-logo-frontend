@@ -1,0 +1,62 @@
+#terminal {
+  grid-area: terminal;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: "history" "controls";
+  overflow-y: auto;
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
+}
+
+#history {
+  display: grid;
+  grid-template-rows: 5fr 1fr;
+  grid-template-areas: "entries" "prompt";
+  overflow-y: auto;
+}
+
+#entries {
+  grid-area: entries;
+  margin: 0;
+  padding: 0;
+  font: var(--monospace-font);
+  overflow-y: auto;
+}
+
+#prompt {
+  grid-area: prompt;
+  width: 100%;
+  font: var(--monospace-font);
+  background-color: #312f2f;
+  border-style: none;
+  color: #eaeaf0;
+}
+
+#controls {
+  grid-area: controls;
+  padding: 10px;
+  display: flex;
+}
+
+#controls > button:first-child {
+  margin-left: auto;
+}
+#controls > button {
+  margin-left: 10px;
+}
+
+#entries > li {
+  white-space: pre-wrap;
+}
+#entries > li.input {
+  color: rgba(247, 248, 242, 0.7);
+}
+#entries > li.input:before {
+  content: "> ";
+}
+#entries > li.error {
+  color: rgb(248, 80, 80);
+}
+#entries > li.error:before {
+  content: "! ";
+}

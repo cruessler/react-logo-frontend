@@ -1,0 +1,30 @@
+on: [push]
+name: build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [ 12.x, 14.x ]
+
+    name: Node.js ${{ matrix.node }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build assets
+        run: yarn build
+
+      - name: Check formatting
+        run: |
+          npx prettier --check "src/**/*.{ts,tsx,js,json,css}"
+          npx prettier --check *.json

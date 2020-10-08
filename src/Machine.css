@@ -1,0 +1,35 @@
+#machine h2 {
+  margin: 0;
+}
+
+#machine ul {
+  font: var(--monospace-font);
+  padding: 0;
+  list-style: none;
+}
+
+#machine li {
+  padding: 0.2em 0;
+}
+
+#machine table {
+  font: var(--monospace-font);
+}
+
+#machine tr.current {
+  color: rgb(18, 18, 18);
+  background-color: var(--primary-color);
+}
+
+#machine {
+  grid-area: vm;
+  padding: 1em;
+  overflow-y: auto;
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
+  box-shadow: -5px 5px 5px 0 rgb(201, 199, 199);
+}
+
+#program {
+  overflow-y: auto;
+}
