@@ -10,7 +10,9 @@
     "@types/node": "^14.14.6",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^17.0.0",
+    "cheerio": "^1.0.0-rc.5",
     "gl-matrix": "^3.3.0",
+    "node-fetch": "^2.6.1",
     "prettier": "^2.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -21,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "load-worker": "node bin/loadWorker.mjs"
   },
   "eslintConfig": {
     "extends": "react-app"
