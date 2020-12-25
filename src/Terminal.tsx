@@ -16,11 +16,23 @@ interface Props {
 const renderEntry = (entry: Entry) => {
   switch (entry.type) {
     case "Input":
-      return <li className="input">{entry.input}</li>;
+      return (
+        <li key={entry.id} className="input">
+          {entry.input}
+        </li>
+      );
     case "Output":
-      return <li className="output">{entry.output}</li>;
+      return (
+        <li key={entry.id} className="output">
+          {entry.output}
+        </li>
+      );
     case "Error":
-      return <li className="error">{entry.error}</li>;
+      return (
+        <li key={entry.id} className="error">
+          {entry.error}
+        </li>
+      );
   }
 };
 

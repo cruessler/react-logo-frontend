@@ -9,9 +9,9 @@ export type Scope =
   | { type: "Loop"; current: number };
 
 export type Entry =
-  | { type: "Input"; input: string }
-  | { type: "Output"; output: string }
-  | { type: "Error"; error: string };
+  | { type: "Input"; id: number; input: string }
+  | { type: "Output"; id: number; output: string }
+  | { type: "Error"; id: number; error: string };
 
 export interface Turtle {
   x: number;
@@ -33,6 +33,7 @@ export interface Color {
 
 export interface Line {
   type: "Line";
+  id: number;
   start: Vec2;
   end: Vec2;
   color: Color;
