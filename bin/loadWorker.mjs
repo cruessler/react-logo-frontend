@@ -18,32 +18,19 @@ async function main() {
   console.info(`read index.html from ${elmLogoRoot}`);
 
   const $ = cheerio.load(body);
-  const link = $("script");
-  const remoteAppScriptPath = link.attr("src");
-  const remoteAppScriptUrl = elmLogoRoot + remoteAppScriptPath;
+  const link = $('link[rel="preload"]');
+  const remoteWorkerPath = link.attr("href");
 
-  const appScriptResponse = await fetch(remoteAppScriptUrl);
-  const appScript = await appScriptResponse.text();
+  const remoteWorkerScriptUrl = elmLogoRoot + remoteWorkerPath;
 
-  console.info(`read app.js from ${remoteAppScriptUrl}`);
+  const workerScriptResponse = await fetch(remoteWorkerScriptUrl);
+  const workerScript = await workerScriptResponse.text();
 
-  const workerRegex = /new Worker\("(\S+)"\)/;
-  const match = appScript.match(workerRegex);
+  console.info(`read worker from ${remoteWorkerScriptUrl}`);
 
-  if (match !== null) {
-    const [, remoteWorkerPath] = match;
+  await fs.promises.writeFile(localWorkerPath, workerScript);
 
-    const remoteWorkerScriptUrl = elmLogoRoot + remoteWorkerPath;
-
-    const workerScriptResponse = await fetch(remoteWorkerScriptUrl);
-    const workerScript = await workerScriptResponse.text();
-
-    console.info(`read worker from ${remoteWorkerScriptUrl}`);
-
-    await fs.promises.writeFile(localWorkerPath, workerScript);
-
-    console.info(`wrote worker to ${localWorkerPath}`);
-  }
+  console.info(`wrote worker to ${localWorkerPath}`);
 }
 
 main();
