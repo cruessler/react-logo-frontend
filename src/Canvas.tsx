@@ -43,6 +43,7 @@ const renderObject = (object: Line) => {
     case "Line":
       return (
         <polyline
+          key={object.id}
           fill="none"
           stroke={getRgba(object.color)}
           points={`${object.start.x},${object.start.y} ${object.end.x},${object.end.y}`}
@@ -50,6 +51,7 @@ const renderObject = (object: Line) => {
       );
   }
 };
+
 interface Props {
   size: Size;
   vm: Vm;
