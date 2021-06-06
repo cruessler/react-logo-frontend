@@ -1,4 +1,3 @@
-import React from "react";
 import { Variables, Vm, Scope } from "./vm";
 import "./Machine.css";
 

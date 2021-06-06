@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import { Canvas } from "./Canvas";
 import { Terminal } from "./Terminal";

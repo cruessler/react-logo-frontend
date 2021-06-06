@@ -1,4 +1,3 @@
-import React from "react";
 import { Turtle, Vm, Color, Line } from "./vm";
 import { mat4, vec3 } from "gl-matrix";
 import "./Canvas.css";
