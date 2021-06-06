@@ -1,4 +1,3 @@
-import React from "react";
 import { examples } from "./examples";
 import "./Examples.css";
 

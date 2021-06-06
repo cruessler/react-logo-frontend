@@ -1,4 +1,3 @@
-import React from "react";
 import { Vm, Entry } from "./vm";
 import "./Terminal.css";
 
